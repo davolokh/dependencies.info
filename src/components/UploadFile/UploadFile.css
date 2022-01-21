@@ -1,0 +1,42 @@
+.modal-wrapper {
+  position: fixed;
+  z-index: 1;
+  padding-top: 7.5%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  width: 80%;
+  height: 80%;
+  border-radius: 15px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.75);
+}
+
+.drop-file {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 100%;
+}
+
+.drop-file-text {
+  margin: 0;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+}
+
+.sample-link {
+  text-decoration: underline;
+  color: #00bcd4;
+  cursor: pointer;
+}

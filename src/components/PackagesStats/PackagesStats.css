@@ -1,0 +1,59 @@
+.stats {
+  grid-area: stats;
+  padding: 0 20px;
+}
+
+.stats > .column {
+  width: 50%;
+  float: left;
+}
+
+.disabled {
+  opacity: 0.35;
+}
+
+.coming-soon {
+  float: right;
+  margin-top: -45px;
+  margin-right: 20px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.chart {
+  height: 160px;
+  width: 160px;
+  float: left;
+  margin: 0 15px;
+}
+
+.legend {
+  padding: 30px 0 0 200px;
+}
+
+.legend p {
+  display: block;
+  margin: 1px 3px 0px 25px;
+  line-height: 25px;
+}
+p:before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  transform: translate(-20px, 35%);
+}
+.major-legend:before {
+  background: red;
+}
+.minor-legend:before {
+  background: orange;
+}
+.patch-legend:before {
+  background: yellow;
+}
+.uptodate-legend:before {
+  background: green;
+}

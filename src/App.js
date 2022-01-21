@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, useEffect, useMemo } from "react";
+import DataContext from "store/DataContext";
+import UploadFile from "components/UploadFile/UploadFile";
+import PackagesStats from "components/PackagesStats/PackagesStats";
+import PackagesView from "components/PackagesView/PackagesView";
+import Loading from "components/Loading/Loading";
+import Footer from "components/Footer/Footer";
+import { fetchPackagesData } from "utils/fetch.uitls";
+import { isEmpty } from "utils/basic.utils";
 
-function App() {
+import "./App.css";
+
+const App = () => {
+  const { packageJson, packagesData, setPackagesData, includeDevDependencies } =
+    useContext(DataContext);
+
+  useEffect(() => {
+    !isEmpty(packageJson) &&
+      fetchPackagesData(packageJson, {
+        devDependencies: includeDevDependencies,
+      })
+        .then((res) => res.json())
+        .then((response) => setPackagesData(response.packagesData));
+  }, [packageJson, setPackagesData, includeDevDependencies]);
+
+  const packageJsonUploaded = useMemo(
+    () => !isEmpty(packageJson),
+    [packageJson]
+  );
+
+  const packagesMetaDataReady = useMemo(
+    () => !isEmpty(packagesData),
+    [packagesData]
+  );
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {packageJsonUploaded ? (
+        packagesMetaDataReady ? (
+          <>
+              <PackagesStats />
+              <PackagesView />
+              <Footer />
+          </>
+        ) : (
+          <Loading />
+        )
+      ) : (
+        <UploadFile />
+      )}
     </div>
   );
-}
+};
 
 export default App;

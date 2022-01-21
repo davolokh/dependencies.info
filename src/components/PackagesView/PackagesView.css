@@ -1,0 +1,28 @@
+.package-view  {
+  grid-area: data;
+  padding: 0 20px;
+}
+
+.package-view > ul {
+  background-color: #cccccc !important;
+}
+
+.outdated_major > span:nth-child(2) {
+  color: red;
+  font-weight: bold;
+}
+
+.outdated_minor > span:nth-child(2) {
+  color: orange;
+  font-weight: bold;
+}
+
+.outdated_patch > span:nth-child(2) {
+  color: yellow;
+  font-weight: bold;
+}
+
+.ok > span > span {
+  color: green;
+  font-weight: bold;
+}
