@@ -1,5 +1,7 @@
+const baseURL = 'https://aykuv74hr9.execute-api.us-east-2.amazonaws.com/production'
+
 export const fetchPackagesData = (packageJson, params) =>
-  fetch("/upload-package-json", {
+  fetch(baseURL + "/upload-package-json", {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
