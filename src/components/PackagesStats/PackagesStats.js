@@ -58,8 +58,6 @@ const PackagesStats = () => {
     [statsData]
   );
 
-  console.log(vulnerabilitiesData);
-
   return (
     <div className="stats">
       <div className="column">
