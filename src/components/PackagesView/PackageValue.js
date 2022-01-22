@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import {
   getSemverDiff,
   SEMVER_CLASSES,
@@ -6,7 +7,9 @@ import {
 
 export const SHOWN_FOR = ["dependencies", "devDependencies"];
 
-const PackageValue = ({ displayValue, current, latest, parent }) => {
+const PackageValue = ({ displayValue, current, latest, parent, onClick }) => {
+  const onClickCallback = useCallback(() => onClick(displayValue), [displayValue, onClick]);
+
   if (!SHOWN_FOR.includes(parent) || !current || !latest)
     return <em>{displayValue}</em>;
 
@@ -16,7 +19,7 @@ const PackageValue = ({ displayValue, current, latest, parent }) => {
 
   return (
     <>
-      <span className={className}>
+      <span className={className} onClick={onClickCallback}>
         <span>
           <span>{current}</span>
         </span>

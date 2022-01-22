@@ -25,7 +25,7 @@ const theme = {
   base0F: '#cc6633'
 };
 const PackagesView = () => {
-  const { packageJson, packagesData, includeDevDependencies } =
+  const { packageJson, packagesData, includeDevDependencies, setActivePackage } =
     useContext(DataContext);
 
   const expandList = useMemo(
@@ -50,6 +50,7 @@ const PackagesView = () => {
             name={key}
             parent={parent}
             latest={packagesData[key]?.latestVersion}
+            onClick={setActivePackage}
           />
         )}
         shouldExpandNode={(keyPath) => expandList.includes(keyPath[0])}

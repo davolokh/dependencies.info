@@ -7,6 +7,7 @@ const Provider = ({ children }) => {
   const [packageJson, setPackageJson] = useState({});
   const [packagesData, setPackagesData] = useState({});
   const [vulnerabilitiesData, setVulnerabilitiesData] = useState([]);
+  const [activePackage, setActivePackage] = useState(null);
 
   const value = useMemo(
     () => ({
@@ -18,6 +19,8 @@ const Provider = ({ children }) => {
       setVulnerabilitiesData,
       includeDevDependencies,
       setIncludeDevDependencies,
+      activePackage,
+      setActivePackage,
     }),
     [
       packageJson,
@@ -28,6 +31,8 @@ const Provider = ({ children }) => {
       setVulnerabilitiesData,
       includeDevDependencies,
       setIncludeDevDependencies,
+      activePackage,
+      setActivePackage,
     ]
   );
 
