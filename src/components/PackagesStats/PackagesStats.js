@@ -8,13 +8,15 @@ import {
   getSemverDiff,
 } from "utils/semver.utils";
 
-import { vulnerabilitiesStubData } from "samples/vulnerabilitiesStubData";
-
 import "./PackagesStats.css";
 
 const PackagesStats = () => {
-  const { packageJson, packagesData, includeDevDependencies } =
-    useContext(DataContext);
+  const {
+    packageJson,
+    packagesData,
+    includeDevDependencies,
+    vulnerabilitiesData,
+  } = useContext(DataContext);
 
   const statsData = useMemo(
     () =>
@@ -56,47 +58,48 @@ const PackagesStats = () => {
     [statsData]
   );
 
+  console.log(vulnerabilitiesData);
+
   return (
     <div className="stats">
       <div className="column">
-        <h1>Packages stats</h1>
+        <h1>Packages Stats</h1>
         <div className="chart">
           <PieChart data={pieChartData} animate={true} paddingAngle={1} />
         </div>
         <div className="legend">
           <p className="major-legend">
-            MAJOR outdated: {statsData[SEMVER_PARTS.MAJOR]}
+            MAJOR outdated: <b>{statsData[SEMVER_PARTS.MAJOR]}</b>
           </p>
           <p className="minor-legend">
-            MINOR outdated: {statsData[SEMVER_PARTS.MINOR]}
+            MINOR outdated: <b>{statsData[SEMVER_PARTS.MINOR]}</b>
           </p>
           <p className="patch-legend">
-            PATCH outdated: {statsData[SEMVER_PARTS.PATCH]}
+            PATCH outdated: <b>{statsData[SEMVER_PARTS.PATCH]}</b>
           </p>
-          <p className="uptodate-legend">Up to date: {statsData[UP_TO_DATE]}</p>
+          <p className="uptodate-legend">
+            Up to date: <b>{statsData[UP_TO_DATE]}</b>
+          </p>
         </div>
       </div>
-      <div className="column disabled">
-        <h1>Vulnerabilities stats</h1>
-        <span className="coming-soon">coming soon...</span>
-        <div className="chart">
-          <PieChart
-            data={vulnerabilitiesStubData}
-            animate={true}
-            paddingAngle={1}
-          />
-        </div>
+      <div className="column">
+        <h1>Direct Vulnerabilities Stats</h1>
         <div className="legend">
           <p className="major-legend">
-            Critical: {statsData[SEMVER_PARTS.MAJOR]}
+            Critical: <b>{vulnerabilitiesData?.stats?.critical}</b>
           </p>
           <p className="minor-legend">
-            High: {statsData[SEMVER_PARTS.MINOR]}
+            High: <b>{vulnerabilitiesData?.stats?.high}</b>
           </p>
           <p className="patch-legend">
-            Medium: {statsData[SEMVER_PARTS.PATCH]}
+            Moderate: <b>{vulnerabilitiesData?.stats?.moderate}</b>
           </p>
-          <p className="uptodate-legend">Low: {statsData[UP_TO_DATE]}</p>
+          <p className="uptodate-legend">
+            Low: <b>{vulnerabilitiesData?.stats?.low}</b>
+          </p>
+          <p className="info-legend">
+            Info: <b>{vulnerabilitiesData?.stats?.info}</b>
+          </p>
         </div>
       </div>
     </div>

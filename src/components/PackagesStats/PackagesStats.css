@@ -57,3 +57,6 @@ p:before {
 .uptodate-legend:before {
   background: green;
 }
+.info-legend:before {
+  background: lightgreen;
+}

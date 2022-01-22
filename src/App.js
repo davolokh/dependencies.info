@@ -11,7 +11,7 @@ import { isEmpty } from "utils/basic.utils";
 import "./App.css";
 
 const App = () => {
-  const { packageJson, packagesData, setPackagesData, includeDevDependencies } =
+  const { packageJson, packagesData, setPackagesData, setVulnerabilitiesData, includeDevDependencies } =
     useContext(DataContext);
 
   useEffect(() => {
@@ -20,8 +20,11 @@ const App = () => {
         devDependencies: includeDevDependencies,
       })
         .then((res) => res.json())
-        .then((response) => setPackagesData(response.packagesData));
-  }, [packageJson, setPackagesData, includeDevDependencies]);
+        .then((response) => {
+          setPackagesData(response.packagesData);
+          setVulnerabilitiesData(response.vulnerabilitiesData);
+        });
+  }, [packageJson, setPackagesData, includeDevDependencies, setVulnerabilitiesData]);
 
   const packageJsonUploaded = useMemo(
     () => !isEmpty(packageJson),
