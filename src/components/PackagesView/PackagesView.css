@@ -3,11 +3,16 @@
   padding: 0 20px;
 }
 
+.info {
+  grid-area: info;
+  padding: 0 20px;
+}
+
 .package-view > ul {
   background-color: #cccccc !important;
 }
 
-.outdated_major, .outdated_minor, .outdated_patch, .ok {
+.outdated_major, .outdated_minor, .outdated_patch, .ok, .clickable {
   text-decoration: underline;
   cursor: pointer;
 }

@@ -13,7 +13,7 @@ body {
   display: grid;
   grid-template-areas: 
     "stats stats"
-    "data data"
+    "data info"
     "footer footer";
   grid-template-rows: 240px 1fr 50px;  
   grid-template-columns: 50% 50%;
