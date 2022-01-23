@@ -7,10 +7,10 @@ export const SEMVER_PARTS = {
 export const UP_TO_DATE = "ok";
 
 export const SEMVER_COLORS = {
-  [SEMVER_PARTS.MAJOR]: "red",
-  [SEMVER_PARTS.MINOR]: "orange",
-  [SEMVER_PARTS.PATCH]: "yellow",
-  [UP_TO_DATE]: "green",
+  [SEMVER_PARTS.MAJOR]: "#ef233c",
+  [SEMVER_PARTS.MINOR]: "#fb8500",
+  [SEMVER_PARTS.PATCH]: "#ffb703",
+  [UP_TO_DATE]: "#a7c957",
 };
 
 export const SEMVER_CLASSES = {
@@ -19,14 +19,6 @@ export const SEMVER_CLASSES = {
   [SEMVER_PARTS.PATCH]: "outdated_patch",
   [UP_TO_DATE]: "ok",
 };
-
-export const SEMVER_ICONS = {
-  [SEMVER_PARTS.MAJOR]: "❗",
-  [SEMVER_PARTS.MINOR]: "⚠️",
-  [SEMVER_PARTS.PATCH]: "❔",
-  [UP_TO_DATE]: null,
-};
-
 
 export const getSemverDiff = (current, actual) => {
   const currentParts = current.replace("^", "").split(".");

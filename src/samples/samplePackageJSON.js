@@ -21,6 +21,7 @@ export const samplePackageJson = {
     "strip-ansi": "^4.0.0",
     "svg-term-cli": "^2.1.1",
     tempy: "^0.2.1",
+    "pac-proxy-agent": "^3.0.0",
   },
   devDependencies: {
     eslint: "8.6.0",

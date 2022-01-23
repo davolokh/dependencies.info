@@ -32,11 +32,20 @@
   padding: 30px 0 0 200px;
 }
 
-.legend p {
+.vulnerabilities-legend {
+  margin: 35px 0 0 15px;
+}
+
+.legend p, .vulnerabilities-legend p {
   display: block;
   margin: 1px 3px 0px 25px;
   line-height: 25px;
 }
+
+.vulnerabilities-legend {
+  margin-left: 40px;
+}
+
 p:before {
   content: "";
   display: inline-block;
@@ -46,17 +55,17 @@ p:before {
   transform: translate(-20px, 35%);
 }
 .major-legend:before {
-  background: red;
+  background: #ef233c;
 }
 .minor-legend:before {
-  background: orange;
+  background: #fb8500;
 }
 .patch-legend:before {
-  background: yellow;
+  background: #ffb703;
 }
 .uptodate-legend:before {
-  background: green;
+  background: #a7c957;
 }
 .info-legend:before {
-  background: lightgreen;
+  background: #457b9d;
 }

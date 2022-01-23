@@ -6,6 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgba(0, 0, 0, 0.2);
+  font-size: 14px;
 }
 
 .App {
@@ -21,4 +22,13 @@ body {
   grid-column-gap: 10px;
   height: 100vh;
   margin: 0;
+}
+
+h1 {
+  font-weight: normal;
+}
+
+em {
+  font-style: normal;
+  color: black;
 }

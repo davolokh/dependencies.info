@@ -61,9 +61,9 @@ const PackagesStats = () => {
   return (
     <div className="stats">
       <div className="column">
-        <h1>Packages Stats</h1>
+        <h1>Versions Stats</h1>
         <div className="chart">
-          <PieChart data={pieChartData} animate={true} paddingAngle={1} />
+          <PieChart data={pieChartData} animate={true} paddingAngle={2} animationDuration={1000}/>
         </div>
         <div className="legend">
           <p className="major-legend">
@@ -82,7 +82,7 @@ const PackagesStats = () => {
       </div>
       <div className="column">
         <h1>Direct Vulnerabilities Stats</h1>
-        <div className="legend">
+        <div className="vulnerabilities-legend">
           <p className="major-legend">
             Critical: <b>{vulnerabilitiesData?.stats?.critical}</b>
           </p>
