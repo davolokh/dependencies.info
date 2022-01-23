@@ -36,3 +36,10 @@
   color: green;
   font-weight: bold;
 }
+
+.closer {
+  cursor: pointer;
+  float: right;
+  margin-top: -50px;
+  margin-right: 10px;
+}

@@ -3,6 +3,7 @@ import JSONTree from "react-json-tree";
 import DataContext from "store/DataContext";
 import PackageValue from "./PackageValue";
 import PackageLabel from "./PackageLabel";
+import ActivePackage from "./ActivePackage";
 
 import "./PackagesView.css";
 
@@ -30,7 +31,6 @@ const PackagesView = () => {
     packageJson,
     packagesData,
     includeDevDependencies,
-    activePackage,
     setActivePackage,
   } = useContext(DataContext);
 
@@ -75,7 +75,7 @@ const PackagesView = () => {
           shouldExpandNode={(keyPath) => expandList.includes(keyPath[0])}
         />
       </div>
-      <div className="info">{activePackage}</div>
+      <ActivePackage />
     </>
   );
 };
